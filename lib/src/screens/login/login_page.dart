@@ -1,9 +1,15 @@
 import 'package:agenda_tutor_mobile/src/constants/colors.dart';
 import 'package:agenda_tutor_mobile/src/constants/routes_ui.dart';
+import 'package:agenda_tutor_mobile/src/screens/login/form/validators.dart';
 import 'package:agenda_tutor_mobile/src/screens/shared/layout_public.dart';
 import 'package:flutter/material.dart';
 
+import 'styles/login_style.dart';
+
 class LoginPage extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
+  String _username;
+  String _password;
   @override
   Widget build(BuildContext context) {
     return LayoutPublic(
@@ -22,46 +28,51 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 20.0),
             Container(
                 width: 300.0,
-                child: Column(
-                  children: <Widget>[
-                    TextField(
-                      decoration: InputDecoration(
-                        labelStyle: TextStyle(color: Colors.white),
-                        isDense: true,
-                        labelText: "Usuario",
-                        hintStyle: TextStyle(color: Colors.white),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: <Widget>[
+                      TextFormField(
+                        decoration: inputDecorationStyle(labelText: "Usuario"),
+                        validator: loginEmailValidator,
+                        onChanged: (String value) {
+                          _username = value;
+                        },
                       ),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelStyle: TextStyle(color: Colors.white),
-                        isDense: true,
-                        labelText: "Contrasenia",
-                        hintStyle: TextStyle(color: Colors.white),
+                      TextFormField(
+                        decoration:
+                            inputDecorationStyle(labelText: "Contraseña"),
+                        validator: loginPasswordValidator,
+                        obscureText: true,
+                        onChanged: (String value) {
+                          _password = value;
+                        },
                       ),
-                    ),
-                    SizedBox(height: 20.0),
-                    MaterialButton(
-                      onPressed: () {
-                        Navigator.pushReplacementNamed(
-                            context, RoutesUI.URI_HOME);
-                      },
-                      child: Text("Entrar"),
-                      minWidth: double.infinity,
-                      color: Colors.orange[700],
-                      textColor: Colors.white,
-                    ),
-                    InkWell(
-                      child: Text(
-                        "Aun no tienes cuenta?. Registrate",
-                        style: TextStyle(color: Colors.white),
+                      SizedBox(height: 20.0),
+                      MaterialButton(
+                        onPressed: () {
+                          if (_formKey.currentState.validate()) {
+                            Navigator.pushReplacementNamed(
+                                context, RoutesUI.URI_HOME);
+                          }
+                        },
+                        child: Text("Entrar"),
+                        minWidth: double.infinity,
+                        color: Colors.orange[700],
+                        textColor: Colors.white,
                       ),
-                      onTap: () {
-                        Navigator.pushReplacementNamed(
-                            context, RoutesUI.URI_REGISTER);
-                      },
-                    ),
-                  ],
+                      InkWell(
+                        child: Text(
+                          "Aun no tienes cuenta?. Registrate",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onTap: () {
+                          Navigator.pushReplacementNamed(
+                              context, RoutesUI.URI_REGISTER);
+                        },
+                      ),
+                    ],
+                  ),
                 )),
           ],
         ));

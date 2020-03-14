@@ -1,4 +1,4 @@
-package com.example.agenda_tutor_mobile
+package com.edinson.agenda_tutor_mobile
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "545150158090",
+    "firebase_url": "https://agenda-tutor.firebaseio.com",
+    "project_id": "agenda-tutor",
+    "storage_bucket": "agenda-tutor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545150158090:android:0031db7bdc004d614526f3",
+        "android_client_info": {
+          "package_name": "com.edinson.agenda_tutor_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545150158090-mmh1oat8ik0m6kaennk2o4oqqs9soc2k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6NZ2Py3fKaYueqDX3Y9PLnlE2ZPbXZBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545150158090-mmh1oat8ik0m6kaennk2o4oqqs9soc2k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
